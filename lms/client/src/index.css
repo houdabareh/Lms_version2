@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  font-family: Outfit;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  /* overflow: hidden; */
+} 
+
+/* React Big Calendar Customizations */
+.rbc-calendar {
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.rbc-toolbar button {
+  @apply !px-4 !py-2 !rounded-md !font-semibold;
+}
+
+.rbc-event {
+  background-color: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  color: inherit !important;
+  cursor: pointer;
+  @apply rounded-md px-2 py-1;
+}
+
+.rbc-event-content {
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rbc-date-cell.rbc-current span {
+  @apply text-primary;
+}
+
+.rbc-date-cell.rbc-now {
+  @apply bg-blue-50 dark:bg-blue-900;
+}
+
+.rbc-today {
+  background-color: var(--rbc-today-bg-color, #e0f2fe) !important; /* Light blue for today */
+}
+
+.rbc-off-range-bg {
+  background-color: var(--rbc-off-range-bg-color, #f8f8f8) !important; /* Light gray for off-range dates */
+}
+
+/* Dark mode adjustments */
+html.dark .rbc-day-bg:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1), 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+html.dark .rbc-today {
+  background-color: var(--rbc-today-bg-color-dark, #0b4e7e) !important; /* Darker blue for today in dark mode */
+}
+
+html.dark .rbc-off-range-bg {
+  background-color: var(--rbc-off-range-bg-color-dark, #2b2b2b) !important; /* Darker gray for off-range dates in dark mode */
+}
+
+.rbc-month-view {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.rbc-month-row {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.rbc-row-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.rbc-day-bg {
+  transition: all 0.2s ease-in-out;
+}
+
+.rbc-day-bg:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.rbc-date-cell {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Custom fonts - assuming these are set up in your Tailwind config or global CSS */
+.font-satoshi { font-family: 'Satoshi', sans-serif; }
+.font-inter { font-family: 'Inter', sans-serif; }
+
+/* Cursor pointer for all interactive elements */
+button, a, .cursor-pointer {
+    cursor: pointer;
+}
+
+/* Custom animations for hero background */
+@keyframes blob-slow {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(50px, -30px) scale(1.1); }
+  66% { transform: translate(-30px, 20px) scale(0.9); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+.animate-blob-slow {
+  animation: blob-slow 15s infinite cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+.animation-delay-2000 { animation-delay: 2s; }
+.animation-delay-4000 { animation-delay: 4s; }
+
+/* General Blob animation for other sections */
+@keyframes blob {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(20px, -40px) scale(1.05); }
+  66% { transform: translate(-15px, 25px) scale(0.95); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+.animate-blob {
+  animation: blob 10s infinite cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+/* Pulse for badges */
+@keyframes pulse-badge {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(255, 215, 0, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+  }
+}
+.animate-pulse-badge {
+  animation: pulse-badge 2s infinite ease-in-out;
+}
+
+/* Glassmorphism effect for main hero card */
+.glassmorphism-light-card {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+}
+.glassmorphism-dark-card {
+  background: rgba(30, 41, 59, 0.2); /* Deep Gradient with transparency */
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(55, 65, 81, 0.3); /* gray-700 with transparency */
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Softer Glassmorphism for feature cards and CTAs */
+.glassmorphism-light-card-soft {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.glassmorphism-dark-card-soft {
+  background: rgba(30, 41, 59, 0.7); /* Deep Gradient with transparency */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(55, 65, 81, 0.3); /* gray-700 with transparency */
+}
+
+/* Avatar Glow */
+.glow-avatar-light {
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.5), inset 0 0 10px rgba(0, 123, 255, 0.3); /* Primary Blue glow */
+}
+.glow-avatar-dark {
+    box-shadow: 0 0 15px rgba(245, 175, 0, 0.5), inset 0 0 10px rgba(245, 175, 0, 0.3); /* Accent Gold glow */
+}
+
+/* Social Icon Glow on Hover */
+.drop-shadow-lg-yellow:hover {
+    filter: drop-shadow(0 0 8px rgba(245, 175, 0, 0.7)); /* Accent Gold glow */
+}
+.drop-shadow-lg-blue:hover {
+    filter: drop-shadow(0 0 8px rgba(0, 123, 255, 0.7)); /* Primary Blue glow */
+}
+
+/* Line Clamp Utilities for Course Cards */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.line-height-relaxed {
+  line-height: 1.6;
+}
+
+/* Shimmering background for Hero */
+@keyframes shimmer-light {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.light-gradient-shimmer {
+  background: linear-gradient(270deg, #F5F8FF, #A36FFF, #007BFF, #FDBA11, #F5F8FF);
+  background-size: 400% 400%;
+  animation: shimmer-light 15s ease infinite;
+}
+
+@keyframes shimmer-dark {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.dark-gradient-shimmer {
+  background: linear-gradient(270deg, #1A1A1A, #1D3C6D, #007BFF, #FDBA11, #1A1A1A);
+  background-size: 400% 400%;
+  animation: shimmer-dark 15s ease infinite;
+}
+
+/* Custom background for AddCourse page */
+.add-course-bg-light {
+    background: radial-gradient(circle at top left, #a7d9ff, transparent 60%),
+                radial-gradient(circle at bottom right, #ffeb99, transparent 60%);
+    background-color: #f0f4f8; /* Light blue-gray fallback */
+}
+.add-course-bg-dark {
+    background: radial-gradient(circle at top left, #364a6d, transparent 60%),
+                radial-gradient(circle at bottom right, #6d364a, transparent 60%);
+    background-color: #1a202c; /* Dark blue-gray fallback */
+}
+
+/* Shimmer animation for card effect */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+} 

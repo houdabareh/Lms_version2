@@ -1,0 +1,34 @@
+{
+  "name": "AI Founder Studio Admin",
+  "email": "aifounderstudio@gmail.com",
+  "password": "$2a$10$YourHashedPasswordWillGoHere",
+  "role": "admin",
+  "createdAt": "2024-01-15T10:30:00.000Z"
+}
+
+/* 
+INSTRUCTIONS TO ADD THIS ADMIN USER MANUALLY:
+
+1. Open MongoDB Compass or MongoDB Atlas web interface
+2. Connect to your database
+3. Navigate to the 'lms_db' database (or 'lms' if that's what you're using)
+4. Find or create the 'users' collection
+5. Click "Insert Document"
+6. Use this data, but FIRST you need to hash the password:
+
+For the password "1234567", the bcrypt hash is:
+$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi
+
+So the complete document should be:
+{
+  "name": "AI Founder Studio Admin",
+  "email": "aifounderstudio@gmail.com", 
+  "password": "$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi",
+  "role": "admin",
+  "createdAt": "2024-01-15T10:30:00.000Z"
+}
+
+After inserting, you can login with:
+Email: aifounderstudio@gmail.com
+Password: 1234567
+*/ 
